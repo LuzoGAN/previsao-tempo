@@ -1,19 +1,33 @@
 import requests
 import json
-import time
-
+import datetime
+data = datetime.datetime.now()
+a = data.strftime("%d/%m/%Y")
 
 tempo = requests.get('https://apiprevmet3.inmet.gov.br/previsao/5208707')
 tempo = tempo.json()
 
+print(a)
 print(tempo)
-estado = tempo['5208707']['07/03/2022']['manha']['uf']
-cidade = tempo['5208707']['07/03/2022']['manha']['entidade']
-resumo = tempo['5208707']['07/03/2022']['manha']['resumo']
-previ_max = tempo['5208707']['07/03/2022']['manha']['temp_max']
-previ_min = tempo['5208707']['07/03/2022']['manha']['temp_min']
-print(previ)
+estado = tempo['5208707'][a]['manha']['uf']
+cidade = tempo['5208707'][a]['manha']['entidade']
+resumo = tempo['5208707'][a]['manha']['resumo']
+previ_max = tempo['5208707'][a]['manha']['temp_max']
+previ_min = tempo['5208707'][a]['manha']['temp_min']
+umidade_max = tempo['5208707'][a]['manha']['umidade_max']
+umidade_min = tempo['5208707'][a]['manha']['umidade_min']
+estacao = tempo['5208707'][a]['manha']['estacao']
+nascer = tempo['5208707'][a]['manha']['nascer']
+ocaso = tempo['5208707'][a]['manha']['ocaso']
+
+
+
 print(cidade)
 print(resumo)
 print(previ_max)
 print(previ_min)
+print(umidade_max)
+print(umidade_min)
+print(estacao)
+print(nascer)
+print(ocaso)
